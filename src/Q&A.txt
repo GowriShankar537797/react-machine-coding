@@ -1,0 +1,51 @@
+INTERVIEW Q&A: Navigation Tag and Lazy Loading
+===============================================
+
+1. NAVIGATION TAG (<nav>)
+--------------------------
+
+Q: Why do we use <nav> tag instead of <div> for navigation?
+
+A: 
+- Semantic HTML: Makes code more meaningful and readable
+- Accessibility: Screen readers can identify and navigate to it easily
+- SEO: Search engines understand the page structure better
+- Best Practice: Follows web standards for better maintainability
+
+Note: A <div> works the same functionally, but <nav> provides semantic meaning.
+
+
+2. LAZY LOADING WITH SUSPENSE
+------------------------------
+
+Q: Why do we use lazy loading with Suspense in React?
+
+A:
+- Smaller Bundle: Only loads the current route's code, not all routes
+- Faster Load: Initial page loads faster, especially on slow connections
+- Code Splitting: Each route becomes a separate chunk loaded on demand
+- Better Performance: Reduces memory usage and improves runtime performance
+- Better UX: Suspense shows loading state while component loads
+
+Q: How does lazy loading work?
+
+A:
+1. Use React.lazy() to dynamically import components
+2. Wrap routes in Suspense with a fallback UI
+3. Component loads only when route is accessed
+4. Shows fallback while loading, then renders the component
+
+Example:
+const TodoPage = lazy(() => import('@/pages/01_Todo'));
+
+<Suspense fallback={<div>Loading...</div>}>
+  <Route path="/todo" element={<TodoPage />} />
+</Suspense>
+
+Q: When should we use lazy loading?
+
+A:
+- For route-based components
+- When you have many pages/components
+- To improve initial load performance
+- When components are not needed immediately

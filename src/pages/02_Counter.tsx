@@ -2,8 +2,12 @@ import React from 'react';
 
 type CounterProps = { initial?: number; onChange?: (v:number)=>void };
 
+
+
 const Counter: React.FC<CounterProps> = ({ initial=0, onChange }) => {
   const [value, setValue] = React.useState<number>(initial);
+
+  // onchange we are using optional chaining to avoid the error of onChange is not a function
   function inc(){ setValue(v=>{ const nv = v+1; onChange?.(nv); return nv; }); }
   function dec(){ setValue(v=>{ const nv = v-1; onChange?.(nv); return nv; }); }
   return (

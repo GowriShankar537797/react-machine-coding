@@ -53,7 +53,7 @@ const TodoPage: React.FC = () => {
 
       <div style={{marginBottom:10}}>
         <span className="small">Filter: </span>
-        <select value={filter} onChange={e=>setFilter(e.target.value as any)} className="input">
+        <select value={filter} onChange={(e: React.ChangeEvent<HTMLSelectElement>)=>{setFilter(e.target.value as any)}} className="input">
           <option value="all">All</option>
           <option value="active">Active</option>
           <option value="completed">Completed</option>

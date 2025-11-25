@@ -13,7 +13,7 @@ const ThemeSwitcherPage: React.FC = () => {
   return (
     <div>
       <h2>Theme Switcher</h2>
-      <div style={{display:'flex', gap:8}}>
+      <div className="flex gap-2">
         <button className="btn" onClick={()=>setTheme('light')}>Light</button>
         <button className="btn" onClick={()=>setTheme('dark')}>Dark</button>
       </div>

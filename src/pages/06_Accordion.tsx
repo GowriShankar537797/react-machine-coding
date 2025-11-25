@@ -14,12 +14,12 @@ const AccordionPage: React.FC = () => {
     <div>
       <h2>Accordion (single open)</h2>
       {items.map(it=>(
-        <div key={it.id} style={{marginBottom:8}}>
-          <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+        <div key={it.id} className="mb-2">
+          <div className="flex justify-between items-center">
             <strong>{it.title}</strong>
             <button className="btn" onClick={()=>setOpenId(openId === it.id ? null : it.id)}>{openId === it.id ? 'Close' : 'Open'}</button>
           </div>
-          {openId === it.id && <div style={{padding:8}}>{it.body}</div>}
+          {openId === it.id && <div className="p-2">{it.body}</div>}
         </div>
       ))}
     </div>

@@ -45,27 +45,27 @@ const TodoPage: React.FC = () => {
   return (
     <div>
       <h2>Todo App</h2>
-      <div style={{display:'flex', gap:8, marginBottom:8}}>
+      <div className="flex gap-2 mb-2">
         <input className="input" value={text} onChange={e=>setText(e.target.value)} onKeyDown={e=>e.key==='Enter' && addOrUpdate()} placeholder="Add todo..." />
         <button className="btn" onClick={addOrUpdate}>{editingId ? 'Update' : 'Add'}</button>
         {editingId && <button className="btn" onClick={()=>{setEditingId(null); setText('');}}>Cancel</button>}
       </div>
 
-      <div style={{marginBottom:10}}>
+      <div className="mb-2.5">
         <span className="small">Filter: </span>
         <select value={filter} onChange={(e: React.ChangeEvent<HTMLSelectElement>)=>{setFilter(e.target.value as any)}} className="input">
           <option value="all">All</option>
           <option value="active">Active</option>
           <option value="completed">Completed</option>
         </select>
-        <span style={{marginLeft:12}} className="small">{remaining} remaining</span>
+        <span className="ml-3 small">{remaining} remaining</span>
       </div>
 
       <ul>
         {filtered.map(t => (
-          <li key={t.id} style={{display:'flex', gap:8, alignItems:'center', padding:'6px 0'}}>
+          <li key={t.id} className="flex gap-2 items-center py-1.5">
             <input type="checkbox" checked={t.completed} onChange={()=>toggle(t.id)} />
-            <span style={{textDecoration: t.completed ? 'line-through' : undefined, flex:1}}>{t.text}</span>
+            <span className={t.completed ? 'line-through flex-1' : 'flex-1'}>{t.text}</span>
             <button className="btn" onClick={()=>startEdit(t)}>Edit</button>
             <button className="btn" onClick={()=>remove(t.id)}>Delete</button>
           </li>

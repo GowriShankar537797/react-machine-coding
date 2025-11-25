@@ -26,8 +26,8 @@ const StopwatchPage: React.FC = () => {
   return (
     <div>
       <h2>Stopwatch</h2>
-      <div style={{fontSize:24, marginBottom:8}}>{format(elapsed)}</div>
-      <div style={{display:'flex', gap:8}}>
+      <div className="text-2xl mb-2">{format(elapsed)}</div>
+      <div className="flex gap-2">
         {!running ? <button className="btn" onClick={()=>setRunning(true)}>Start</button> : <button className="btn" onClick={()=>setRunning(false)}>Pause</button>}
         <button className="btn" onClick={reset}>Reset</button>
       </div>

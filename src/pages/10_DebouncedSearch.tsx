@@ -34,7 +34,7 @@ const DebouncedSearchPage: React.FC = () => {
     <div>
       <h2>Debounced Search</h2>
       <input className="input" value={q} onChange={e=>setQ(e.target.value)} placeholder="Type to search..." />
-      <div style={{marginTop:8}}>
+      <div className="mt-2">
         {loading ? <div className="small">Loading...</div> : results.length === 0 ? <div className="small">No results</div> : <ul>{results.map(r=> <li key={r}>{r}</li>)}</ul>}
       </div>
     </div>

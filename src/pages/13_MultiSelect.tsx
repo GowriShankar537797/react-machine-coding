@@ -11,18 +11,18 @@ const MultiSelectPage: React.FC = () => {
   return (
     <div>
       <h2>Multi-Select Dropdown</h2>
-      <div style={{position:'relative', display:'inline-block'}}>
+      <div className="relative inline-block">
         <div className="btn inline" onClick={()=>setOpen(o=>!o)}>{selected.length ? selected.join(', ') : 'Select...'}</div>
-        {open && <div style={{position:'absolute', top:40, left:0, background:'#fff', border:'1px solid #ddd', padding:8, borderRadius:6}}>
+        {open && <div className="absolute top-10 left-0 bg-white border border-gray-300 p-2 rounded-md">
           {options.map(o=>(
-            <div key={o} style={{display:'flex', gap:8, alignItems:'center'}}>
+            <div key={o} className="flex gap-2 items-center">
               <input type="checkbox" checked={selected.includes(o)} onChange={()=>toggle(o)} />
               <span>{o}</span>
             </div>
           ))}
         </div>}
       </div>
-      <div style={{marginTop:8}} className="small">Selected: {selected.join(', ') || 'None'}</div>
+      <div className="mt-2 small">Selected: {selected.join(', ') || 'None'}</div>
     </div>
   );
 };

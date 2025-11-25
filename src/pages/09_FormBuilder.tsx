@@ -16,13 +16,13 @@ const FormBuilderPage: React.FC = () => {
       <h2>Form Builder</h2>
       <form onSubmit={submit}>
         {fields.map((f,i)=>(
-          <div key={f.id} style={{display:'flex', gap:8, marginBottom:8, alignItems:'center'}}>
+          <div key={f.id} className="flex gap-2 mb-2 items-center">
             <input className="input" value={f.label} onChange={e=>setFields(s=>s.map(x=>x.id===f.id?{...x,label:e.target.value}:x))} />
             <input className="input" placeholder="value" value={f.value} onChange={e=>update(f.id, e.target.value)} />
             <button type="button" className="btn" onClick={()=>remove(f.id)}>Remove</button>
           </div>
         ))}
-        <div style={{display:'flex', gap:8}}>
+        <div className="flex gap-2">
           <button type="button" className="btn" onClick={add}>Add Field</button>
           <button type="submit" className="btn">Submit</button>
         </div>

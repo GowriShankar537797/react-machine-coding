@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Star: React.FC<{filled:boolean; onClick:()=>void; onEnter:()=>void; onLeave:()=>void}> = ({filled, onClick, onEnter, onLeave}) => (
-  <span onClick={onClick} onMouseEnter={onEnter} onMouseLeave={onLeave} style={{cursor:'pointer', fontSize:22}}>
+  <span onClick={onClick} onMouseEnter={onEnter} onMouseLeave={onLeave} className="cursor-pointer text-[22px]">
     {filled ? '★' : '☆'}
   </span>
 );

@@ -1,43 +1,61 @@
-* { box-sizing: border-box; }
-body { font-family: Inter, system-ui, Arial; margin: 0; padding: 0; background:#f7f7fb; color:#111; }
-.app { padding: 16px; max-width: 1000px; margin: 0 auto; }
-.header { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
-.main-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 12px;
-  margin-bottom: 12px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f9fafb;
+    color: #111827;
+    font-family: Inter, system-ui, Arial, sans-serif;
+  }
 }
 
-.main-nav a {
-  padding: 8px 16px;
-  text-decoration: none;
-  color: #2563eb;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  background: #fff;
-  transition: all 0.2s ease;
-  font-size: 0.9rem;
-  cursor: pointer;
+@layer components {
+  .app {
+    @apply p-4 max-w-5xl mx-auto;
+  }
+  
+  .header {
+    @apply flex gap-3 items-center mb-3;
+  }
+  
+  .main-nav {
+    @apply flex flex-wrap gap-2 p-3 mb-3 bg-white rounded-lg shadow-md;
+  }
+  
+  .main-nav a {
+    @apply px-4 py-2 no-underline text-blue-600 border border-gray-200 rounded-md bg-white transition-all duration-200 text-sm cursor-pointer;
+  }
+  
+  .main-nav a:hover {
+    @apply bg-gray-100 border-blue-600;
+  }
+  
+  .main-nav a.active {
+    @apply bg-blue-600 text-white border-blue-600 font-medium;
+  }
+  
+  .page {
+    @apply bg-white p-4 rounded-lg shadow-sm;
+  }
+  
+  .btn {
+    @apply px-2.5 py-1.5 rounded-md border border-gray-300 bg-white cursor-pointer;
+  }
+  
+  .input {
+    @apply p-2 rounded-md border border-gray-300;
+  }
+  
+  .small {
+    @apply text-sm text-gray-600;
+  }
+  
+  .inline {
+    @apply inline-flex gap-2 items-center;
+  }
 }
-
-.main-nav a:hover {
-  background: #f3f4f6;
-  border-color: #2563eb;
-}
-
-.main-nav a.active {
-  background: #2563eb;
-  color: white;
-  border-color: #2563eb;
-  font-weight: 500;
-}
-.page { background: white; padding:16px; border-radius:8px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-.btn { padding:6px 10px; border-radius:6px; border:1px solid #ddd; background:#fff; cursor:pointer; }
-.input { padding:8px; border-radius:6px; border:1px solid #ddd; }
-.small { font-size:0.9rem; color:#666; }
-.inline { display:inline-flex; gap:8px; align-items:center; }

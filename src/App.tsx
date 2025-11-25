@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import TabNavigation from '@/components/TabNavigation';
 
 // Lazy load all page components for code splitting
 const TodoPage = lazy(() => import('@/pages/01_Todo'));
@@ -17,35 +18,19 @@ const ThemeSwitcherPage = lazy(() => import('@/pages/12_ThemeSwitcher'));
 const MultiSelectPage = lazy(() => import('@/pages/13_MultiSelect'));
 const InfiniteScrollPage = lazy(() => import('@/pages/14_InfiniteScroll'));
 const SimpleRouterPage = lazy(() => import('@/pages/15_SimpleRouter'));
+const HTMLPage = lazy(() => import('@/pages/HTML/16_HTML'));
 
 const App: React.FC = () => {
   return (
     <div className="app">
       <div className="header">
-        <h1 style={{margin:0}}>React Machine Coding — Demos (TS)</h1>
+        <h1 className="m-0">React Machine Coding — Demos (TS)</h1>
       </div>
 
-      <nav className="main-nav">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/todo">Todo</NavLink>
-        <NavLink to="/counter">Counter</NavLink>
-        <NavLink to="/search-filter">Search/Filter</NavLink>
-        <NavLink to="/pagination">Pagination</NavLink>
-        <NavLink to="/modal">Modal</NavLink>
-        <NavLink to="/accordion">Accordion</NavLink>
-        <NavLink to="/tabs">Tabs</NavLink>
-        <NavLink to="/stopwatch">Stopwatch</NavLink>
-        <NavLink to="/form-builder">FormBuilder</NavLink>
-        <NavLink to="/debounced-search">Debounced Search</NavLink>
-        <NavLink to="/star-rating">Star Rating</NavLink>
-        <NavLink to="/theme-switcher">Theme Switcher</NavLink>
-        <NavLink to="/multi-select">Multi-Select</NavLink>
-        <NavLink to="/infinite-scroll">Infinite Scroll</NavLink>
-        <NavLink to="/simple-router">Simple Router</NavLink>
-      </nav>
+      <TabNavigation />
 
       <div className="page">
-        <Suspense fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Loading...</div>}>
+        <Suspense fallback={<div className="p-5 text-center">Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todo" element={<TodoPage />} />
@@ -63,6 +48,7 @@ const App: React.FC = () => {
             <Route path="/multi-select" element={<MultiSelectPage />} />
             <Route path="/infinite-scroll" element={<InfiniteScrollPage />} />
             <Route path="/simple-router" element={<SimpleRouterPage />} />
+            <Route path="/html" element={<HTMLPage />} />
           </Routes>
         </Suspense>
       </div>
@@ -74,23 +60,32 @@ const Home: React.FC = () => (
   <div>
     <h2>Home</h2>
     <p className="small">Click links above to open each machine coding question implemented as a separate page.</p>
-    <ol>
-      <li>Todo App</li>
-      <li>Counter Reusable Component</li>
-      <li>Search + Filter List</li>
-      <li>Pagination Component</li>
-      <li>Modal Component</li>
-      <li>Accordion Component</li>
-      <li>Tabs Component</li>
-      <li>StopWatch / Timer</li>
-      <li>Form Builder</li>
-      <li>Debounced Search Input</li>
-      <li>Star Rating Component</li>
-      <li>Theme Switcher</li>
-      <li>Multi-Select Dropdown</li>
-      <li>Infinite Scroll</li>
-      <li>Simple Router (no react-router)</li>
-    </ol>
+    <div className="mt-5">
+      <h3 className="text-blue-600 mb-2.5">React Machine Coding Questions:</h3>
+      <ol>
+        <li>Todo App</li>
+        <li>Counter Reusable Component</li>
+        <li>Search + Filter List</li>
+        <li>Pagination Component</li>
+        <li>Modal Component</li>
+        <li>Accordion Component</li>
+        <li>Tabs Component</li>
+        <li>StopWatch / Timer</li>
+        <li>Form Builder</li>
+        <li>Debounced Search Input</li>
+        <li>Star Rating Component</li>
+        <li>Theme Switcher</li>
+        <li>Multi-Select Dropdown</li>
+        <li>Infinite Scroll</li>
+        <li>Simple Router (no react-router)</li>
+      </ol>
+    </div>
+    <div className="mt-8">
+      <h3 className="text-blue-600 mb-2.5">HTML Q&A:</h3>
+      <ol>
+        <li>HTML Semantic vs Non-Semantic Tags</li>
+      </ol>
+    </div>
   </div>
 );
 

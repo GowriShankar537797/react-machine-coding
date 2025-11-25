@@ -17,7 +17,7 @@ const SimpleRouterPage: React.FC = () => {
   return (
     <div>
       <h2>Simple Router (no react-router)</h2>
-      <div style={{display:'flex', gap:8, marginBottom:8}}>
+      <div className="flex gap-2 mb-2">
         <button className="btn" onClick={()=>navigate('/')}>Home</button>
         <button className="btn" onClick={()=>navigate('/about')}>About</button>
         <button className="btn" onClick={()=>navigate('/contact')}>Contact</button>

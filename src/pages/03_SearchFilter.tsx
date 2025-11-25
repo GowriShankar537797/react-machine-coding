@@ -24,7 +24,7 @@ const SearchFilterPage: React.FC = () => {
   return (
     <div>
       <h2>Search + Filter</h2>
-      <div style={{display:'flex', gap:8, marginBottom:8}}>
+      <div className="flex gap-2 mb-2">
         <input className="input" value={q} onChange={e=>setQ(e.target.value)} placeholder="Search..." />
         <select className="input" value={cat} onChange={e=>setCat(e.target.value)}>
           {cats.map(c => <option key={c} value={c}>{c}</option>)}

@@ -10,8 +10,8 @@ const TabsPage: React.FC = () => {
   return (
     <div>
       <h2>Tabs</h2>
-      <div style={{display:'flex', gap:8, marginBottom:8}}>
-        {tabs.map(t=> <button key={t.id} className="btn" onClick={()=>setActive(t.id)} style={{fontWeight: active === t.id ? 700 : 400}}>{t.title}</button>)}
+      <div className="flex gap-2 mb-2">
+        {tabs.map(t=> <button key={t.id} className={`btn ${active === t.id ? 'font-bold' : 'font-normal'}`} onClick={()=>setActive(t.id)}>{t.title}</button>)}
       </div>
       <div>{tabs.find(t=>t.id === active)?.content}</div>
     </div>

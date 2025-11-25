@@ -9,10 +9,10 @@ const Modal: React.FC<{open:boolean; onClose:()=>void; children?:React.ReactNode
 
   if(!open) return null;
   return (
-    <div style={{position:'fixed', inset:0, display:'flex', alignItems:'center', justifyContent:'center', background:'rgba(0,0,0,0.3)'}} onClick={onClose}>
-      <div onClick={e=>e.stopPropagation()} style={{background:'#fff', padding:16, borderRadius:8, minWidth:300}}>
+    <div className="fixed inset-0 flex items-center justify-center bg-black/30" onClick={onClose}>
+      <div onClick={e=>e.stopPropagation()} className="bg-white p-4 rounded-lg min-w-[300px]">
         {children}
-        <div style={{marginTop:12, textAlign:'right'}}>
+        <div className="mt-3 text-right">
           <button className="btn" onClick={onClose}>Close</button>
         </div>
       </div>

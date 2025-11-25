@@ -38,7 +38,7 @@ const InfiniteScrollPage: React.FC = () => {
         {items.map(i=> <li key={i}>{i}</li>)}
       </ul>
       {loading && <div className="small">Loading...</div>}
-      <div ref={sentinelRef} style={{height:1}} />
+      <div ref={sentinelRef} className="h-px" />
       {!hasMore && <div className="small">No more items</div>}
     </div>
   );

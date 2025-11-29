@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HTMLPage: React.FC = () => {
+const SematicVSNonSematicTags: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto p-5">
       <h2>Semantic vs Non-Semantic HTML Tags</h2>
@@ -241,4 +241,4 @@ const HTMLPage: React.FC = () => {
   );
 };
 
-export default HTMLPage;
+export default SematicVSNonSematicTags;

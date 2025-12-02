@@ -1,7 +1,7 @@
 const Home: React.FC = () => (
     <div>
       <h2>Home</h2>
-      <p className="small">Click links above to open each machine coding question implemented as a separate page.</p>
+     
       <div className="mt-5">
         <h3 className="text-blue-600 mb-2.5">React Machine Coding Questions:</h3>
         <ol>

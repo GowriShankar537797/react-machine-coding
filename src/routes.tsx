@@ -17,6 +17,7 @@ const routesConfig = [
     { path: '/infinite-scroll', modulePath: '../pages', componentName: 'InfiniteScroll' },
     { path: '/simple-router', modulePath: '../pages', componentName: 'SimpleRouter' },
     { path: '/html', modulePath: '../pages', componentName: 'SematicVSNonSematicTags' },
+    {path:"/practice",modulePath:"../pages/practice",componentName:"MyPage"}
   ];
 
   export default routesConfig;

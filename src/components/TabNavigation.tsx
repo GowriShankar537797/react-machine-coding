@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, Fragment } from 'react';
+import {  NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const TabNavigation: React.FC = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState<'react' | 'html'>('react');
-
+  const navigate = useNavigate();
   // Sync tab with current route
   useEffect(() => {
     if (location.pathname === '/html') {
@@ -14,32 +14,33 @@ const TabNavigation: React.FC = () => {
     }
   }, [location.pathname]);
 
+  const tabList = [
+    { id: "home", label: "Home", path: "/" },
+    { id: 'react', label: 'React Machine Coding', path: "/todo" },
+    { id: 'html', label: 'HTML Q&A', path: "/html" },
+    {id:"practics",label:"Practice",path:"/practics"}
+  ];
+
   return (
-    <>
+    <Fragment key={activeTab}>
       {/* Tab Navigation */}
       <div className="flex gap-6 mb-3 py-2 border-b-2 border-gray-200">
-        <button
-          onClick={() => setActiveTab('react')}
-          className={`bg-transparent border-0 p-0 cursor-pointer text-xl font-semibold transition-colors duration-200 outline-none ${
-            activeTab === 'react' ? 'text-blue-600' : 'text-gray-500'
-          }`}
+
+        {tabList.map((element) => <button
+          onClick={() => {
+            navigate(element.path);
+            setActiveTab(element.id as 'react' | 'html')}}
+          className={`bg-transparent border-0 p-0 cursor-pointer text-xl font-semibold transition-colors duration-200 outline-none ${activeTab === element.id ? 'text-blue-600' : 'text-gray-500'
+            }`}
         >
-          React Machine Coding
-        </button>
-        <button
-          onClick={() => setActiveTab('html')}
-          className={`bg-transparent border-0 p-0 cursor-pointer text-xl font-semibold transition-colors duration-200 outline-none ${
-            activeTab === 'html' ? 'text-blue-600' : 'text-gray-500'
-          }`}
-        >
-          HTML Q&A
-        </button>
+          {element.label}
+        </button>)}
+
       </div>
 
       {/* Navigation Links based on active tab */}
       {activeTab === 'react' && (
         <nav className="main-nav">
-          <NavLink to="/">Home</NavLink>
           <NavLink to="/todo">Todo</NavLink>
           <NavLink to="/counter">Counter</NavLink>
           <NavLink to="/search-filter">Search/Filter</NavLink>
@@ -63,7 +64,7 @@ const TabNavigation: React.FC = () => {
           <NavLink to="/html">HTML Semantic/Non-Semantic</NavLink>
         </nav>
       )}
-    </>
+    </Fragment>
   );
 };
 
